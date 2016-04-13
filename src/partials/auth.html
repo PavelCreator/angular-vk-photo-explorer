@@ -4,12 +4,14 @@
     <img src="build/img/angularjs.png" alt="Angular" class="logo-images">
     explorer
   </h2>
-  <form ng-click="auth.signin()" class="form-signin" ng-show="step == 1">
+  <form ng-click="login()" class="form-signin" ng-show="auth == false">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in on
       <i class="fa fa-vk" aria-hidden="true"></i></button>
   </form>
-<!--  <form ng-click="auth.signout()" class="form-signin" ng-show="step == 2">-->
-  <form ng-click="logout()" class="form-signin">
+  <p ng-show="auth == true">
+    user: {{mid}}
+  </p>
+  <form ng-click="logout()" class="form-signin" ng-show="auth == true">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign out</button>
   </form>
 </div>
