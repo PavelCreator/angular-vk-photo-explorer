@@ -23,8 +23,8 @@ angular.module('inputsDrct', [])
       restrict: 'A',
       link: function (scope, element) {
         element.bind("change keyup input click", function (e) {
-          if (this.value.match(/[^0-9]/g)) {
-            this.value = this.value.replace(/[^0-9]/g, '');
+          if (this.value.match(/[^0-9]-/g)) {
+            this.value = this.value.replace(/[^0-9]-/g, '');
           }
         });
       }
