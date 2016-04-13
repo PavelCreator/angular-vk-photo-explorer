@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="appGallery" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="appGallery" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="appGallery" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="appGallery" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+
+  <title ng-bind="TITLE">Gallery</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Styles -->
+
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/angular-loading-bar/src/loading-bar.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="build/css/pavelcreatorLib.min.css">
+  <link rel="stylesheet" href="build/css/style.min.css">
+
+  <link href='https://fonts.googleapis.com/css?family=Neucha|PT+Serif&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="document-wrapper">
+  <div class="main-wrapper pl20 pr20">
+    <div ui-view class="view-area pt15"></div>
+  </div>
+</div>
+
+<div class="footer navbar-fixed-bottom">
+  <div class="container">
+    <p class="muted">
+      &#169 2016 PavelCreator -
+      <a href="https://github.com/PavelCreator" target='_blank'>GitHub <i class="fa fa-github"></i></a>,
+      <a href="https://ua.linkedin.com/in/pavel-neshataev-470167a0" target='_blank'>LinkedIn
+        <i class="fa fa-linkedin-square"></i></a>
+    </p>
+  </div>
+</div>
+</div>
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+
+<!-- Sources -->
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="node_modules/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<!-- Libraries -->
+<script src="src/js/libs/pavelcreatorLib.js"></script>
+
+<!-- UI -->
+<script src="node_modules/angular-loading-bar/src/loading-bar.js"></script>
+
+<!-- Directives -->
+<script src="src/js/ui/imagePreloaderDrct.js"></script>
+<script src="src/js/ui/inputsDrct.js"></script>
+
+<!-- App -->
+<script src="src/js/appSources.js"></script>
+<script src="src/js/appConfig.js"></script>
+<script src="src/js/appRouter.js"></script>
+<script src="src/js/appDrct.js"></script>
+<script src="src/js/appFilters.js"></script>
+
+<!-- Services -->
+<script src="src/js/services/dataSvc.js"></script>
+<script src="src/js/appSvc.js"></script>
+
+<!-- Controllers -->
+<script src="src/js/controllers/authCtrl.js"></script>
+<script src="src/js/appCtrl.js"></script>
+
+<script src="src/js/app.js"></script>
+</body>
+</html>
