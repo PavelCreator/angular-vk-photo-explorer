@@ -1,5 +1,7 @@
 'use strict';
 
 angular.module('appControllers', [
-  'authCtrl'
+  'authCtrl',
+  'albumsListCtrl',
+  'albumViewCtrl'
 ])

@@ -2,75 +2,43 @@
 
 angular.module('authCtrl', [])
 
-  .controller('authController', ["$rootScope", "$scope", "apiService", "$http", '$location',
-    function ($rootScope, $scope, apiService, $http, $location) {
+  .controller('authController', ["$scope", "apiService", '$state',
+    function ($scope, apiService, $state) {
 
-/*      VK.init({
-        apiId: 5414170
-      });
+      var authData = Object.create(null);
+      authData.client_id = 5414170;
+      authData.redirect_uri = location.origin + location.pathname;
 
-      function authInfo(response) {
-        if (response.session) {
-          console.log(response);
-          $rootScope.auth = true;
-          $rootScope.mid = response.session.mid;
-        } else {
-          $rootScope.auth = false;
-        }
+      if (localStorage.getItem('access_token')) {
+        $state.go("albumsList", {});
       }
 
-      VK.Auth.getLoginStatus(authInfo);*/
+      if (location.search.indexOf('?code=') != -1) {
+        var codeArr = location.search.split('?code=');
+        authData.code = codeArr[1];
 
-      console.log(location);
-
-      if(location.search.indexOf('?code=')!= -1) {
-        var code = location.search.split('?code=');
-        code = code[1];
-        console.log(code);
+        apiService.getAccessToken(authData.code)
+          .then(function (response, status) {
+            if (response.data.error == 'invalid_grant') {
+              window.location = location.origin + location.pathname;
+            } else {
+              for (var key in response.data) {
+                authData[key] = response.data[key];
+              }
+              delete authData.code;
+              localStorage.setItem('access_token', authData.access_token);
+              localStorage.setItem('user_id', authData.user_id);
+              window.location = location.origin + location.pathname;
+            }
+          });
       }
 
-      $rootScope.auth = false;
+      $scope.authLogicShow = true;
 
       $scope.login = function () {
-        window.location = 'https://oauth.vk.com/authorize?client_id=5414170&display=page&redirect_uri=http://timer.dev/gallery&scope=photos&response_type=code';
-
-/*        $http.get(
-          'https://oauth.vk.com/authorize?client_id=5414170&display=page&redirect_uri=http://timer.dev&scope=friends&response_type=code&v=5.50'
-        ).success(function (response) {
-          console.log(response);
-        });*/
-
-
-/*        VK.Auth.login(authInfo);
-        $rootScope.auth = true;*/
+        window.location =
+          'https://oauth.vk.com/authorize?client_id=' + authData.client_id + '' +
+          '&display=page&redirect_uri=' + authData.redirect_uri + '&scope=photos&response_type=code';
       }
-
-      $scope.logout = function () {
-                VK.Auth.logout();
-      }
-
-/*https://oauth.vk.com/authorize?client_id=5414170&display=page&redirect_uri=http://timer.dev&scope=friends&response_type=code&v=5.50*/
-
-
-      /*      var methodName = 'groups.getMembers';
-       var groupID = 76922753;
-       var url = 'https://api.vk.com/method/' + methodName + '?group_id=' + groupID + '&callback=JSON_CALLBACK';
-
-       $http.jsonp(url).success(function (response) {
-       console.log(response);
-       });*/
-
-
-      /*      $scope.step1 = function () {
-       $scope.step = 2;
-       apiService.authStep1($scope.email, $scope.password);
-       };
-
-       $scope.step2 = function () {
-       apiService.authStep2($scope.authCode)
-       .then(function (response, status) {
-       console.log("response.data =", response.data);
-       });
-       };*/
 
     }])

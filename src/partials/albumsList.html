@@ -1,0 +1,54 @@
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs tab--list" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-picture-o" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-windows" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-comment" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-flag" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#upload" aria-controls="upload" role="tab" data-toggle="tab"><i class="fa fa-upload" aria-hidden="true"></i></a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+      <p class="user-name-string">Welcome, {{userName}}.</p>
+      <div class="album--list">
+        <div class="album--item flex-container" ng-repeat="album in albums">
+          <div class="dib album--thumb-wrapper flex-fixed">
+            <img src="{{album.thumb}}" class="album--thumb-image" alt="">
+          </div>
+          <div class="flex-column">
+            <div class="dib album--details flex-flex"><h4><a href="#album/{{album.aid}}/{{album.title}}" rel='nofollow'>{{album.title}}</a></h4>
+              <p><i class="fa fa-picture-o" aria-hidden="true"></i> Size: {{album.size}}</p>
+              <p><i class="fa fa-clock-o" aria-hidden="true"></i></i> Created: {{album.created*1000 | date : "MM/dd/yyyy 'at' HH:mm"}}</p>
+              <p><i class="fa fa-refresh" aria-hidden="true"></i> Updated: {{album.updated*1000 | date : "MM/dd/yyyy 'at' HH:mm"}}</p>
+            </div>
+            <div class="dib album--link-direction-wrapper flex-fixed">
+              <a class='album--link-direction' href="#album/{{album.aid}}" rel='nofollow'>
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="upload"></div>
+  </div>
+</div>

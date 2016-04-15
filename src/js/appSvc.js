@@ -1,5 +1,8 @@
 'use strict';
 
 angular.module('appServices', [
-  'apiSvc'
+  'authSvc',
+  'apiSvc',
+  'albumsListSvc',
+  'albumViewSvc'
 ]);

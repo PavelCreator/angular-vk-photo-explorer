@@ -1,0 +1,55 @@
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs tab--list" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-picture-o" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-windows" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-comment" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-flag" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#upload" aria-controls="upload" role="tab" data-toggle="tab"><i class="fa fa-upload" aria-hidden="true"></i></a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+      <p class="user-name-string">
+        <a href="#albums-list" rel='nofollow' class="color_inherit"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+        <i class="fa fa-folder" aria-hidden="true"></i>
+        {{albumName}}
+      </p>
+      <div class="images--list">
+        <div class="dib images--item" ng-repeat="image in images"
+             popover="{{image.popover}}"
+             popover-container='body' ,
+             popover-trigger="mouseenter"
+             popover-placement="bottom"
+        >
+          <div class="images--thumb-wrapper">
+            <img src="{{image.sizes[1].src}}" class="images--thumb-image" alt="">
+          </div>
+          <div class="images--thumb-select-link">
+            <a href="#photo/{{image.owner_id+'_'+image.pid}}" class="uline" rel='nofollow'>
+              <i class="fa fa-check blue m3" aria-hidden="true"></i>Select</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="upload"></div>
+</div>

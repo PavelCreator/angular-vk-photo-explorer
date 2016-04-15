@@ -1,17 +1,11 @@
-<div class="container">
+<div class="container" ng-show="authLogicShow">
   <h2 class="form-signin-heading tac">
     <img src="build/img/vk.png" alt="flickr" class="logo-images"> +
     <img src="build/img/angularjs.png" alt="Angular" class="logo-images">
     explorer
   </h2>
-  <form ng-click="login()" class="form-signin" ng-show="auth == false">
+  <form ng-click="login()" class="form-signin">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in on
       <i class="fa fa-vk" aria-hidden="true"></i></button>
-  </form>
-  <p ng-show="auth == true">
-    user: {{mid}}
-  </p>
-  <form ng-click="logout()" class="form-signin" ng-show="auth == true">
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign out</button>
   </form>
 </div>
