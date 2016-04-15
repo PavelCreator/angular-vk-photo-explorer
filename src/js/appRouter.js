@@ -18,9 +18,14 @@ angular.module('appRouter', [])
         controller: 'albumsListController',
       })
       .state('albumView', {
-        url: "/album/:aid/:title",
+        url: "/album/:aid&:atitle",
         templateUrl: "src/partials/albumView.html",
         controller: 'albumViewController',
+      })
+      .state('photoView', {
+        url: "/photo/:aid&:atitle/:pid",
+        templateUrl: "src/partials/photoView.html",
+        controller: 'photoViewController',
       })
       .state('upload', {
         url: "/upload",

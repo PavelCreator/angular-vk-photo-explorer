@@ -5,10 +5,10 @@ angular.module('albumViewCtrl', ['ngAnimate', 'ui.bootstrap'])
   .controller('albumViewController', ["$scope", "authService", "apiService", "albumViewService", '$state', '$http',
     function ($scope, authService, apiService, albumViewService, $state, $http) {
 
-      var aid = $state.params.aid;
-      $scope.albumName = $state.params.title;
+      $scope.aid = $state.params.aid;
+      $scope.atitle = $state.params.atitle;
 
-      apiService.getAlbum(aid)
+      apiService.getAlbum($scope.aid)
         .then(function (response, status) {
           authService.checkOutdateToken(response);
 

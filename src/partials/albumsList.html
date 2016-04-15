@@ -35,13 +35,13 @@
             <img src="{{album.thumb}}" class="album--thumb-image" alt="">
           </div>
           <div class="flex-column">
-            <div class="dib album--details flex-flex"><h4><a href="#album/{{album.aid}}/{{album.title}}" rel='nofollow'>{{album.title}}</a></h4>
+            <div class="dib album--details flex-flex"><h4><a href="#album/{{album.aid}}&{{album.title}}" rel='nofollow'>{{album.title}}</a></h4>
               <p><i class="fa fa-picture-o" aria-hidden="true"></i> Size: {{album.size}}</p>
               <p><i class="fa fa-clock-o" aria-hidden="true"></i></i> Created: {{album.created*1000 | date : "MM/dd/yyyy 'at' HH:mm"}}</p>
               <p><i class="fa fa-refresh" aria-hidden="true"></i> Updated: {{album.updated*1000 | date : "MM/dd/yyyy 'at' HH:mm"}}</p>
             </div>
             <div class="dib album--link-direction-wrapper flex-fixed">
-              <a class='album--link-direction' href="#album/{{album.aid}}" rel='nofollow'>
+              <a class='album--link-direction' href="#album/{{album.aid}}&{{album.title}}" rel='nofollow'>
                 <i class="fa fa-angle-double-right" aria-hidden="true"></i>
               </a>
             </div>

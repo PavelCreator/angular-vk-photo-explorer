@@ -3,5 +3,6 @@
 angular.module('appControllers', [
   'authCtrl',
   'albumsListCtrl',
-  'albumViewCtrl'
+  'albumViewCtrl',
+  'photoViewCtrl'
 ])

@@ -29,26 +29,16 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
       <p class="user-name-string">
-        <a href="#albums-list" rel='nofollow' class="color_inherit"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-        <i class="fa fa-folder" aria-hidden="true"></i>
-        {{atitle}}
+        <a href="#album/{{aid}}&{{atitle}}" rel='nofollow' class="color_inherit"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+        {{photo.name}}
       </p>
-      <div class="images--list">
-        <div class="dib images--item" ng-repeat="image in images"
-             popover="{{image.popover}}"
-             popover-container='body' ,
-             popover-trigger="mouseenter"
-             popover-placement="bottom"
-        >
-          <div class="images--thumb-wrapper">
-            <img src="{{image.sizes[1].src}}" class="images--thumb-image" alt="">
-          </div>
-          <div class="images--thumb-select-link">
-            <a href="#photo/{{aid}}&{{atitle}}/{{image.owner_id+'_'+image.pid}}" class="uline" rel='nofollow'>
-              <i class="fa fa-check blue m3" aria-hidden="true"></i>Select</a>
-          </div>
-        </div>
+      <div class="photo--image-wrapper" ng-bind-html="photo.imageInAllSizes">
+<!--        <img src="{{photo.sizes[3].src}}" class="photo&#45;&#45;image photo&#45;&#45;image-size3" alt="">
+        <img src="{{photo.sizes[4].src}}" class="photo&#45;&#45;image photo&#45;&#45;image-size4" alt="">
+        <img src="{{photo.sizes[6].src}}" class="photo&#45;&#45;image photo&#45;&#45;image-size6" alt="">
+        <img src="{{photo.sizes[7].src}}" class="photo&#45;&#45;image photo&#45;&#45;image-size7" alt="">-->
       </div>
+      <div class="photo--description" ng-bind-html="photo.description"></div>
     </div>
   </div>
   <div role="tabpanel" class="tab-pane" id="upload"></div>
