@@ -28,25 +28,53 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
+
+<!--      <div ng-app='myApp' ng-controller='DemoController'>
+        <div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
+          <div ng-repeat='item in reddit.items'>
+            <span class='score'>{{item.score}}</span>
+      <span class='title'>
+        <a ng-href='{{item.url}}' target='_blank'>{{item.title}}</a>
+      </span>
+            <small>by {{item.author}} -
+              <a ng-href='http://reddit.com{{item.permalink}}' target='_blank'>{{item.num_comments}} comments</a>
+            </small>
+            <div style='clear: both;'></div>
+          </div>
+          <div ng-show='reddit.busy'>Loading data...</div>
+        </div>
+      </div>-->
+
+
       <p class="user-name-string">
         <a href="#albums-list" rel='nofollow' class="color_inherit"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
         <i class="fa fa-folder" aria-hidden="true"></i>
         {{atitle}}
       </p>
       <div class="images--list">
-        <div class="dib images--item" ng-repeat="image in images"
+        <!--             ng-repeat="image in images | reverse"-->
+        <div class="dib images--item"
+
+             infinite-scroll="myPagingFunction()"
+             infinite-scroll-distance="1"
+             infinite-scroll-disabled='busy'
+
+             ng-repeat="image in images"
              popover="{{image.popover}}"
              popover-container='body' ,
              popover-trigger="mouseenter"
              popover-placement="bottom"
         >
           <div class="images--thumb-wrapper">
-            <img src="{{image.sizes[1].src}}" class="images--thumb-image" alt="">
+            <img preloader src="{{image.sizes[1].src}}" class="images--thumb-image" alt="">
+            <span class="loading"><img src="build/img/preloader64.gif"/></span>
+            <span class="srcFail"><img src="build/img/no_img64.gif"/></span>
           </div>
           <div class="images--thumb-select-link">
             <a href="#photo/{{aid}}&{{atitle}}/{{image.owner_id+'_'+image.pid}}" class="uline" rel='nofollow'>
               <i class="fa fa-check blue m3" aria-hidden="true"></i>Select</a>
           </div>
+          <div ng-show='busy'>Loading data...</div>
         </div>
       </div>
     </div>

@@ -6,7 +6,6 @@ angular.module('imagePreloaderDrct', [])
     return {
       restrict: 'A',
       link: function (scope, element, attrs) {
-        
         if (attrs.src == undefined) {
           //On Fail
           element.hide();
@@ -26,4 +25,4 @@ angular.module('imagePreloaderDrct', [])
         }
       }
     };
-  });
+  })

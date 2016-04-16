@@ -10,4 +10,9 @@ angular.module('appFilters', [])
     return function (val) {
       return $sce.trustAsHtml(val);
     };
-  }]);
+  }])
+  .filter('reverse', function () {
+    return function (items) {
+      return items.slice().reverse();
+    };
+  });

@@ -226,3 +226,16 @@ body{
     display:inline-block;
   }
 }
+
+/*Image Preloader*/
+.spinner-show,
+.spinner-hide + .loading,
+.srcFailShow > .srcFail{
+  display:inline-block;
+}
+.spinner-hide,
+.spinner-show + .loading,
+.spinner-error + .loading,
+.srcFail{
+  display:none;
+}

@@ -32,7 +32,9 @@
       <div class="album--list">
         <div class="album--item flex-container" ng-repeat="album in albums">
           <div class="dib album--thumb-wrapper flex-fixed">
-            <img src="{{album.thumb}}" class="album--thumb-image" alt="">
+            <img preloader src="{{album.thumb}}" class="album--thumb-image" alt="">
+            <span class="loading"><img src="build/img/preloader64.gif"/></span>
+            <span class="srcFail"><img src="build/img/no_img64.gif"/></span>
           </div>
           <div class="flex-column">
             <div class="dib album--details flex-flex"><h4><a href="#album/{{album.aid}}&{{album.title}}" rel='nofollow'>{{album.title}}</a></h4>

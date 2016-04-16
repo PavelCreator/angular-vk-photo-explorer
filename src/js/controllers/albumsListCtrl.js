@@ -18,14 +18,15 @@ angular.module('albumsListCtrl', [])
         .then(function (response, status) {
           authService.checkOutdateToken(response);
 
-          $scope.albums = response.data.response;
+          var albums = response.data.response;
           var photosString = albumsListService.photosString(response.data.response);
 
           apiService.getPhotos(photosString)
             .then(
               function (response, status) {
                 var albumsThumbs = response.data.response;
-                $scope.albums = albumsListService.addAlbumThumbs($scope.albums, albumsThumbs);
+                albums = albumsListService.addAlbumThumbs(albums, albumsThumbs);
+                $scope.albums = albums;
                 console.log($scope.albums);
               }
             )
