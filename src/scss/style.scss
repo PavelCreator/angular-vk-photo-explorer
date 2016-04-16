@@ -2,7 +2,8 @@
 $red:#d10009;
 $red_dark:#950009;
 
-$blue:#337ab7;
+/*$blue:#337ab7;*/
+$blue:#2496d4;
 $blue-l:#b1ddec;
 
 $green:#007313;
@@ -20,8 +21,12 @@ body{
   padding-top:40px;
   padding-bottom:40px;
 }
-
 /*Layout rules*/
+.main-wrapper{
+  max-width:1170px;
+  margin-right:auto;
+  margin-left:auto;
+}
 .footer{
   background-color:$grey-ll;
   padding-top:5px;
@@ -33,7 +38,6 @@ body{
     color:$grey;
   }
 }
-
 /*Bootstrap corrections*/
 .nav-tabs > li > a{
   color:$blue-l;
@@ -41,7 +45,6 @@ body{
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover{
   color:$blue;
 }
-
 /***************/
 /*Modules rules*/
 /***************/
@@ -81,7 +84,6 @@ body{
   color:$grey;
   margin-left:10px;
 }
-
 /*Tab*/
 .tab--list{
   li{
@@ -91,7 +93,6 @@ body{
     }
   }
 }
-
 /*Album list*/
 .album--list{
   .album--item{
@@ -133,8 +134,11 @@ body{
     }
   }
 }
-
 /*Album View - Images list*/
+.images--list{
+  height:0px;
+  overflow:auto;
+}
 .images--item{
   background-color:$grey-ll;
   border:1px solid $grey;
@@ -163,13 +167,13 @@ body{
     text-align:left;
   }
 }
-
 /*Album View - Popover*/
 .popover{
-  max-width:100%;
-  left:15px !important;
-  right:15px !important;
-  background-color: rgba(0, 0, 0, 0.8);
+  width:1140px;
+  max-width:95%;
+  left: auto !important;
+  right: auto !important;
+  background-color:rgba(0, 0, 0, 0.8);
   border:0px;
   color:$grey-ll;
   &.bottom{
@@ -179,7 +183,6 @@ body{
     display:none;
   }
 }
-
 /*Photo Details = Popover + Photo View*/
 .photo-details--table{
   font-size:12px;
@@ -189,7 +192,6 @@ body{
     vertical-align:top;
   }
 }
-
 /*Photo View*/
 .photo--image-wrapper{
   border-top:1px solid $grey-l;
@@ -199,7 +201,6 @@ body{
     max-width:100%;
   }
 }
-
 .photo--image-size3,
 .photo--image-size4,
 .photo--image-size6,
@@ -226,7 +227,6 @@ body{
     display:inline-block;
   }
 }
-
 /*Image Preloader*/
 .spinner-show,
 .spinner-hide + .loading,
@@ -238,4 +238,17 @@ body{
 .spinner-error + .loading,
 .srcFail{
   display:none;
+}
+/*Infinite scroll*/
+.loading-data{
+  text-align:center;
+  font-size:30px;
+  color:$blue;
+  margin-bottom:5px;
+  margin-top:5px;
+  img{
+    position:relative;
+    top:-4px;
+    left:-3px;
+  }
 }

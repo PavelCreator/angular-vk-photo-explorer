@@ -2,5 +2,5 @@
 
 angular.module('appDirectives', [
   'imagePreloaderDrct',
-  'inputsDrct'
+  'scrollyDrct'
 ]);
