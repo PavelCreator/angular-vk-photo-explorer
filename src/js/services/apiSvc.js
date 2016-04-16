@@ -79,4 +79,20 @@ angular.module('apiSvc', [])
         })
       };
 
+      this.getAlbumOffset = function (aid, offset_num) {
+        return $http({
+          method: 'POST',
+          url: redirect_uri + 'api/getAlbumOffset.php',
+          data: {
+            methodName: 'photos.get',
+            offset: offset_num*48,
+            count: 48,
+            owner_id: localStorage.getItem('user_id'),
+            album_id: aid,
+            photo_sizes: 1,
+            access_token: localStorage.getItem('access_token')
+          }
+        })
+      };
+
     }]);

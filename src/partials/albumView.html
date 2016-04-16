@@ -29,7 +29,7 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
 
-<!--      <div ng-app='myApp' ng-controller='DemoController'>
+      <div ng-app='myApp' ng-controller='DemoController'>
         <div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
           <div ng-repeat='item in reddit.items'>
             <span class='score'>{{item.score}}</span>
@@ -43,7 +43,7 @@
           </div>
           <div ng-show='reddit.busy'>Loading data...</div>
         </div>
-      </div>-->
+      </div>
 
 
       <p class="user-name-string">
@@ -52,10 +52,11 @@
         {{atitle}}
       </p>
       <div class="images--list">
-        <!--             ng-repeat="image in images | reverse"-->
+        <!--      myPagingFunction()
+               ng-repeat="image in images | reverse"-->
         <div class="dib images--item"
 
-             infinite-scroll="myPagingFunction()"
+             infinite-scroll="getPhotos()"
              infinite-scroll-distance="1"
              infinite-scroll-disabled='busy'
 
