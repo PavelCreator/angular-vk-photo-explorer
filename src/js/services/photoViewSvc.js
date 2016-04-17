@@ -19,9 +19,9 @@ angular.module('photoUploadSvc', [])
           imageInAllSizes += '<img src="' + image.sizes[4].src + '" class="photo--image photo--image-size4" alt="">';
           (image.sizes[7])
             ? (
-            imageInAllSizes += '<img src="' + image.sizes[6].src + '" class="photo--image photo--image-size6" alt="">',
+              imageInAllSizes += '<img src="' + image.sizes[6].src + '" class="photo--image photo--image-size6" alt="">',
               imageInAllSizes += '<img src="' + image.sizes[7].src + '" class="photo--image photo--image-size7" alt="">'
-          )
+            )
             : imageInAllSizes += '<img src="' + image.sizes[6].src + '" class="photo--image photo--image-size6 photo--image-size7" alt="">';
           return imageInAllSizes;
         }

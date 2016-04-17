@@ -2,8 +2,10 @@
 
 angular.module('photoViewCtrl', ['ngAnimate', 'ui.bootstrap'])
 
-  .controller('photoViewController', ["$scope", "authService", "apiService", "albumViewService", "photoViewService", '$state', '$http', '$sce',
-    function ($scope, authService, apiService, albumViewService, photoViewService, $state, $http, $sce) {
+  .controller('photoViewController', ["$rootScope", "$scope", "authService", "apiService", "photoViewService", '$state', '$sce',
+    function ($rootScope, $scope, authService, apiService, photoViewService, $state, $sce) {
+
+      $rootScope.section = 'view';
 
       var pid = $state.params.pid;
       $scope.aid = $state.params.aid;
@@ -12,7 +14,7 @@ angular.module('photoViewCtrl', ['ngAnimate', 'ui.bootstrap'])
       $scope.photo = {};
       $scope.photo.name = pid;
 
-    apiService.getPhotos(pid)
+      apiService.getPhotos(pid)
         .then(function (response, status) {
           authService.checkOutdateToken(response);
 

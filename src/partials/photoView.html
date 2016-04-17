@@ -1,45 +1,14 @@
 <div>
+  <ul ng-include="'src/partials/menu.html'" class="nav nav-tabs tab--list" role="tablist"></ul>
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs tab--list" role="tablist">
-    <li role="presentation" class="active">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-picture-o" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-windows" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-comment" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-square-o" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-flag" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#upload" aria-controls="upload" role="tab" data-toggle="tab"><i class="fa fa-upload" aria-hidden="true"></i></a>
-    </li>
-  </ul>
-
-  <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
       <p class="user-name-string">
         <a href="#album/{{aid}}&{{atitle}}" rel='nofollow' class="color_inherit"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
         {{photo.name}}
       </p>
-      <div class="photo--image-wrapper" ng-bind-html="photo.imageInAllSizes">
-<!--        <img src="{{photo.sizes[3].src}}" class="photo&#45;&#45;image photo&#45;&#45;image-size3" alt="">
-        <img src="{{photo.sizes[4].src}}" class="photo&#45;&#45;image photo&#45;&#45;image-size4" alt="">
-        <img src="{{photo.sizes[6].src}}" class="photo&#45;&#45;image photo&#45;&#45;image-size6" alt="">
-        <img src="{{photo.sizes[7].src}}" class="photo&#45;&#45;image photo&#45;&#45;image-size7" alt="">-->
-      </div>
+      <div class="photo--image-wrapper" ng-bind-html="photo.imageInAllSizes"></div>
       <div class="photo--description" ng-bind-html="photo.description"></div>
     </div>
   </div>
-  <div role="tabpanel" class="tab-pane" id="upload"></div>
 </div>

@@ -119,7 +119,9 @@ body{
     .album--thumb-wrapper{
       width:138px;
       text-align:center;
-
+      display:flex;
+      align-items:center;
+      justify-content:center;
       .album--thumb-image{
         max-height:98px;
       }

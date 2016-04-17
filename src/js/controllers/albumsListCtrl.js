@@ -2,8 +2,9 @@
 
 angular.module('albumsListCtrl', [])
 
-  .controller('albumsListController', ["$scope", "authService", "apiService", "albumsListService",
-    function ($scope, authService, apiService, albumsListService) {
+  .controller('albumsListController', ["$rootScope", "$scope", "authService", "apiService", "albumsListService",
+    function ($rootScope, $scope, authService, apiService, albumsListService) {
+      $rootScope.section = 'view';
 
       if (localStorage.getItem('userName')) {
         $scope.userName = localStorage.getItem('userName');
@@ -23,13 +24,17 @@ angular.module('albumsListCtrl', [])
           authService.checkOutdateToken(response);
 
           var albums = response.data.response;
-          var photosString = albumsListService.photosString(response.data.response);
+          var photosStringResults = albumsListService.photosString(response.data.response);
+          var photosString = photosStringResults[0];
+          //photosStringSync needed to fix empty album bug
+          var photosStringSync = photosStringResults[1];
 
           apiService.getPhotos(photosString)
-            .then(
-              function (response, status) {
+            .then(function (response, status) {
+                authService.checkOutdateToken(response);
+
                 var albumsThumbs = response.data.response;
-                albums = albumsListService.addAlbumThumbs(albums, albumsThumbs);
+                albums = albumsListService.addAlbumThumbs(albums, albumsThumbs, photosStringSync);
                 $scope.albums = albums;
                 console.log($scope.albums);
               }

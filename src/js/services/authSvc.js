@@ -6,6 +6,7 @@ angular.module('authSvc', [])
       return {
         checkOutdateToken: function (response) {
           if (response.data.error) {
+            localStorage.clear();
             window.location = location.origin + location.pathname;
           }
         }

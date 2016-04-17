@@ -1,31 +1,6 @@
 <div>
+  <ul ng-include="'src/partials/menu.html'" class="nav nav-tabs tab--list" role="tablist"></ul>
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs tab--list" role="tablist">
-    <li role="presentation" class="active">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-picture-o" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-windows" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-comment" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-square-o" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-flag" aria-hidden="true"></i></a>
-    </li>
-    <li role="presentation">
-      <a href="#upload" aria-controls="upload" role="tab" data-toggle="tab"><i class="fa fa-upload" aria-hidden="true"></i></a>
-    </li>
-  </ul>
-
-  <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
       <p class="user-name-string">
@@ -56,5 +31,4 @@
       </div>
     </div>
   </div>
-  <div role="tabpanel" class="tab-pane" id="upload"></div>
 </div>

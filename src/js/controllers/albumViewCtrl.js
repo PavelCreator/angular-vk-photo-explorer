@@ -4,6 +4,7 @@ angular.module('albumViewCtrl', ['ngAnimate', 'ui.bootstrap'])
 
   .controller('albumViewController', ["$rootScope", "$scope", "authService", "apiService", "albumViewService", '$state', '$http',
     function ($rootScope, $scope, authService, apiService, albumViewService, $state, $http) {
+      $rootScope.section = 'view';
 
       $scope.aid = $state.params.aid;
       $scope.atitle = $state.params.atitle;
@@ -19,12 +20,12 @@ angular.module('albumViewCtrl', ['ngAnimate', 'ui.bootstrap'])
       $scope.flagEndPhotoDownload = false;
 
       $scope.getPhotos = function () {
-
         if ($scope.flagEndPhotoDownload) return;
 
         apiService.getAlbumOffset($scope.aid, ++photoCounter)
           .then(function (response, status) {
             authService.checkOutdateToken(response);
+
             var newImages = response.data.response;
             if (newImages.length < 48) {
               $scope.flagEndPhotoDownload = true;
@@ -33,7 +34,6 @@ angular.module('albumViewCtrl', ['ngAnimate', 'ui.bootstrap'])
               return;
             }
             newImages = albumViewService.createPopoverTable(newImages);
-
 
             $scope.images = $scope.images.concat(newImages);
           });
