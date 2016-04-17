@@ -28,13 +28,19 @@ const config = {
       'src/js/controllers/*.js',
       'src/js/app.js'
     ],
-    html: 'src/html/index.html'
+    html: {
+      main_page:'./index_uncompressed.html',
+      partials:'src/partials/*.html'
+    }
   },
   build: {
     css: 'build/css',
     img: 'build/img',
     js: 'build/js',
-    html: './'
+    html: {
+      main_page:'./',
+      partials:'build/partials'
+    }
   }
 }
 
@@ -72,13 +78,21 @@ gulp.task('build-js', () => {
     .on('error', swallowError);
 });
 
-gulp.task('build-html', () => {
-  return gulp.src(config.src.html)
+gulp.task('build-html-main-page', () => {
+  return gulp.src(config.src.html.main_page)
     .pipe(removeHtmlComments())
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(rename('index.html'))
-    .pipe(gulp.dest(config.build.html))
-    .pipe(notify({message: 'Build HTML task complete'}));
+    .pipe(gulp.dest(config.build.html.main_page))
+    .pipe(notify({message: 'Build HTML Main Page task complete'}));
+});
+
+gulp.task('build-html-partials', () => {
+  return gulp.src(config.src.html.partials)
+    .pipe(removeHtmlComments())
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest(config.build.html.partials))
+    .pipe(notify({message: 'Build HTML Partials task complete'}));
 });
 
 gulp.task('clean', () => {
@@ -97,8 +111,14 @@ gulp.task('watch-img', () => {
 gulp.task('watch-html', () => {
   gulp.watch(config.src.html, ['build-html'])
 })
+gulp.task('watch-html-main-page', () => {
+  gulp.watch(config.src.html.main_page, ['build-html-main-page'])
+})
+gulp.task('watch-html-partials', () => {
+  gulp.watch(config.src.html.partials, ['build-html-partials'])
+})
 
-gulp.task('w', ['watch-css', 'watch-img'/*, 'watch-js', 'watch-html'*/])
-gulp.task('b', ['build-css', 'build-img'/*, 'build-js', 'build-html'*/])
+gulp.task('w', ['watch-css', 'watch-img', 'watch-html-main-page', 'watch-html-partials'/*, 'watch-js', 'watch-html'*/])
+gulp.task('b', ['build-css', 'build-img', 'build-html-main-page', 'build-html-partials'/*, 'build-js', 'build-html'*/])
 
 gulp.task('default', ['w2015'])
