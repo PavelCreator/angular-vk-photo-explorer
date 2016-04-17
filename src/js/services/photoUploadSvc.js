@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('photoUploadSvc', [])
-  .factory('photoUploadService', ["$filter",
+angular.module('photoViewSvc', [])
+  .factory('photoViewService', ["$filter",
     function ($filter) {
       return {
         createTable: function(image){

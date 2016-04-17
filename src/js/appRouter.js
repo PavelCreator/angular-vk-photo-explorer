@@ -29,7 +29,7 @@ angular.module('appRouter', [])
       })
       .state('upload', {
         url: "/upload",
-        templateUrl: "src/partials/albumsList.html",
-        controller: 'albumsListController',
+        templateUrl: "src/partials/photoUpload.html",
+        controller: 'photoUploadController',
       })
   }]);

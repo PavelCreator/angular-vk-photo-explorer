@@ -5,5 +5,6 @@ angular.module('appServices', [
   'apiSvc',
   'albumsListSvc',
   'albumViewSvc',
-  'photoViewSvc'
+  'photoViewSvc',
+  'photoUploadSvc'
 ]);

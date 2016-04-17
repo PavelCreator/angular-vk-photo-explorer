@@ -1,0 +1,68 @@
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs tab--list" role="tablist">
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-picture-o" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-windows" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-comment" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation">
+      <a href="#albums-list" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-flag" aria-hidden="true"></i></a>
+    </li>
+    <li role="presentation" class="active">
+      <a href="#upload" aria-controls="upload" role="tab" data-toggle="tab"><i class="fa fa-upload" aria-hidden="true"></i></a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane" id="home"></div>
+    <div role="tabpanel" class="tab-pane active" id="upload">
+      <p class="user-name-string">Upload your photo</p>
+      <div class="album--list">
+
+        <div class="form-group">
+          <label for="sel1">Select an album:</label>
+          <select id="album-select" class="form-control" id="sel1" ng-model="currentAlbum" ng-change="selectAlbum()">
+            <option value="" disabled selected>Please click here and select an album</option>
+            <option ng-repeat="album in albums" value="{{album.aid}}">{{album.title}}</option>
+          </select>
+        </div>
+
+        <div flow-init
+             flow-file-added="catchFile($file)"
+             flow-drop-enabled="enabled"
+             ng-if="albumSelected"
+        >
+          <div flow-drop class="drop" ng-class="dropClass" >
+            Drop files here or <span class="uline blue" flow-btn>browse</span> to upload
+          </div>
+          <div class="images--list" scrolly="getPhotos()">
+            <div class="dib images--item"
+                 ng-repeat="file in $flow.files"
+            >
+              <div class="images--thumb-wrapper">
+                <img flow-img="file" class="images--thumb-image" alt=""/>
+              </div>
+              <div class="images--thumb-select-link" id="{{file.name}}">
+                <img src="build/img/spinner_micro.gif" class="micro-spinner" alt=""> Loading...
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

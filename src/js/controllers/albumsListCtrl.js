@@ -5,14 +5,18 @@ angular.module('albumsListCtrl', [])
   .controller('albumsListController', ["$scope", "authService", "apiService", "albumsListService",
     function ($scope, authService, apiService, albumsListService) {
 
-      apiService.getUserInfo()
-        .then(function (response, status) {
-          authService.checkOutdateToken(response);
+      if (localStorage.getItem('userName')) {
+        $scope.userName = localStorage.getItem('userName');
+      } else {
+        apiService.getUserInfo()
+          .then(function (response, status) {
+            authService.checkOutdateToken(response);
 
-          var userName = response.data.response[0].first_name;
-          localStorage.setItem('userName', userName);
-          $scope.userName = userName;
-        });
+            var userName = response.data.response[0].first_name;
+            localStorage.setItem('userName', userName);
+            $scope.userName = userName;
+          });
+      }
 
       apiService.getAlbumsList()
         .then(function (response, status) {

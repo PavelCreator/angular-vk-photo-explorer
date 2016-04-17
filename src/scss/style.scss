@@ -4,14 +4,26 @@ $red_dark:#950009;
 
 /*$blue:#337ab7;*/
 $blue:#2496d4;
+$blue-d:#0064aa;
 $blue-l:#b1ddec;
 
-$green:#007313;
+$green:#009317;
 
 $grey:#7f7f7f;
 $grey-l:#d3d3d3;
 $grey-ll:#efefef;
 $grey-lll:#f6f6f6;
+
+.blue{
+  color:$blue;
+  &:hover{
+    color:$blue-d;
+    cursor:pointer;
+  }
+}
+.green{
+  color:$green;
+}
 
 /*Base rules*/
 html{
@@ -107,6 +119,7 @@ body{
     .album--thumb-wrapper{
       width:138px;
       text-align:center;
+
       .album--thumb-image{
         max-height:98px;
       }
@@ -158,9 +171,13 @@ body{
     width:130px;
     height:98px;
     text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     .images--thumb-image{
       display:inline-block;
       max-height:98px;
+      max-width: 130px;
     }
   }
   .images--thumb-select-link{
@@ -251,4 +268,22 @@ body{
     top:-4px;
     left:-3px;
   }
+}
+/*Drug-n-drop*/
+.drop{
+  padding:100px 15px;
+  text-align:center;
+  border:3px dashed #d3d3d3;
+  border-radius:5px;
+  line-height:22px;
+  font-size:16px;
+  margin-bottom:16px;
+}
+.drag-over{
+  border:3px $blue dashed;
+  background-color:$grey-lll;
+}
+.micro-spinner{
+  margin:-2px 0px 0 5px;
+  width:12px;
 }

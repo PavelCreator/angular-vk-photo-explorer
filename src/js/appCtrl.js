@@ -4,5 +4,6 @@ angular.module('appControllers', [
   'authCtrl',
   'albumsListCtrl',
   'albumViewCtrl',
-  'photoViewCtrl'
+  'photoViewCtrl',
+  'photoUploadCtrl'
 ])
