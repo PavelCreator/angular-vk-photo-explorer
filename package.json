@@ -28,7 +28,6 @@
   "dependencies": {
     "@flow.js/ng-flow": "^2.7.1",
     "angular-base64": "^2.0.5",
-    "body-parser": "^1.15.0",
     "font-awesome": "^4.5.0",
     "jquery": "^2.2.3"
   }
