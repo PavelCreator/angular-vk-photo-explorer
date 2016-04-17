@@ -23,9 +23,16 @@ const config = {
     css: 'src/scss/*.scss',
     img: 'src/img/*',
     js: [
-      'src/js/ui.js',
+      'src/js/ui/*.js',
+      'src/js/appSources.js',
+      'src/js/appConfig.js',
+      'src/js/appRouter.js',
+      'src/js/appDrct.js',
+      'src/js/appFilters.js',
       'src/js/services/*.js',
+      'src/js/appSvc.js',
       'src/js/controllers/*.js',
+      'src/js/appCtrl.js',
       'src/js/app.js'
     ],
     html: {
@@ -118,7 +125,7 @@ gulp.task('watch-html-partials', () => {
   gulp.watch(config.src.html.partials, ['build-html-partials'])
 })
 
-gulp.task('w', ['watch-css', 'watch-img', 'watch-html-main-page', 'watch-html-partials'/*, 'watch-js', 'watch-html'*/])
-gulp.task('b', ['build-css', 'build-img', 'build-html-main-page', 'build-html-partials'/*, 'build-js', 'build-html'*/])
+gulp.task('w', ['watch-css', 'watch-img', 'watch-html-main-page', 'watch-html-partials', 'watch-js'])
+gulp.task('b', ['build-css', 'build-img', 'build-html-main-page', 'build-html-partials', 'build-js'])
 
 gulp.task('default', ['w2015'])
