@@ -1,4 +1,4 @@
-отобжраения<h1>VK Angular Photo Explorer</h1>
+<h1>VK Angular Photo Explorer</h1>
 <h3>Тестовое задание для позиции javascript developer</h3>
 <h3><a href="http://melomance.net/gallery/">Full demo</a></h3>
 
